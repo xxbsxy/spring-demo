@@ -13,4 +13,24 @@
         <!--@mbg.generated-->
         s_id, s_name, s_brith, s_sex
     </sql>
+
+    <select id="getStudent" resultMap="BaseResultMap">
+        select s_id, s_name, s_brith, s_sex from Student
+        <where>
+            <if test="param1 != null">
+                s_name like #{param1}
+            </if>
+
+            <if test="param2 != null">
+               and s_sex = #{param2}
+            </if>
+        </where>
+    </select>
+    <sql id="Join_Column_List">
+        <!--@mbg.generated-->
+        Student.s_id as Student_s_id,
+        Student.s_name as Student_s_name,
+        Student.s_brith as Student_s_brith,
+        Student.s_sex as Student_s_sex
+    </sql>
 </mapper>
