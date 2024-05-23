@@ -9,6 +9,19 @@ spring:
       username: root
       password: 123456
       driver-class-name: com.mysql.cj.jdbc.Driver
+  data:
+    redis:
+      host: 47.98.243.65
+      port: 6379
+      jedis:
+        pool:
+          max-active: 8
+          max-wait: -1
+          max-idle: 8
+  rabbitmq:
+    username: root
+    password: 123456
+    addresses: 47.98.243.65:5672
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
