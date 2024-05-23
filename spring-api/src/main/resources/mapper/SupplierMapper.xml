@@ -26,5 +26,22 @@
   <select id="getSupplier" resultMap="BaseResultMap">
     select    id, `name`, code, short_name, agency_type, contacts, phone, create_time, create_user,
               update_time, update_user, `state` from Supplier
+    <where>
+      <if test="req.name != null">
+        name like '%${req.name}%'
+      </if>
+
+      <if test="req.agencyType != null">
+        and agency_type = #{req.agencyType}
+      </if>
+
+      <if test="req.shortName != null">
+        and short_name like '%${req.shortName}%'
+      </if>
+
+      <if test="req.state != null">
+        and state  = #{req.state}
+      </if>
+    </where>
     </select>
 </mapper>

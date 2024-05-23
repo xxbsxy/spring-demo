@@ -17,11 +17,11 @@
     <select id="getStudent" resultMap="BaseResultMap">
         select s_id, s_name, s_brith, s_sex from Student
         <where>
-            <if test="param1 != null">
+            <if test="sName != null">
                 s_name like #{sName}
             </if>
 
-            <if test="param2 != null">
+            <if test="sSex != null">
                and s_sex = #{sSex}
             </if>
         </where>
