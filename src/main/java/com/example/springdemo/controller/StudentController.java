@@ -15,7 +15,7 @@ public class StudentController {
     @Autowired
     StudentService studentService;
     @GetMapping("/student")
-    public Result<List<Student>> getStudent(@RequestParam("sName") String sName, @RequestParam("sSex") String sSex) {
+    public Result<List<Student>> getStudent(@RequestParam(value = "sName", required = false) String sName, @RequestParam(value = "sSex", required = false) String sSex) {
 
        return studentService.getStudent(sName, sSex);
 
